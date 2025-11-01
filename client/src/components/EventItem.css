@@ -1,0 +1,87 @@
+.event-item {
+  padding: 4px 6px;
+  margin: 2px 0;
+  border-left: 3px solid;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 20px;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  word-wrap: break-word;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+
+.event-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, currentColor, transparent);
+  opacity: 0.1;
+  transition: width 0.3s ease;
+}
+
+.event-item.compact {
+  white-space: nowrap;
+  padding: 2px 4px;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1px 0;
+  min-height: 14px;
+}
+
+.event-item:not(.compact) {
+  white-space: normal;
+}
+
+.event-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+  position: relative;
+  transform: translateX(2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.event-item:hover::before {
+  width: 100%;
+}
+
+.event-time {
+  font-weight: 500;
+  color: #5f6368;
+  margin-bottom: 2px;
+}
+
+.event-title {
+  font-weight: 400;
+  color: #3c4043;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.38;
+}
+
+.event-item.compact .event-title {
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.event-location {
+  font-size: 11px;
+  color: #70757a;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

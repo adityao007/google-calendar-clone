@@ -1,0 +1,78 @@
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  left: 240px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(100% - 240px);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-content.sidebar-minimized {
+  left: 72px;
+  width: calc(100% - 72px);
+}
+
+.calendar-container {
+  flex: 1;
+  overflow: auto;
+  background-color: #ffffff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Google Calendar Scrollbar styling */
+.calendar-container::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.calendar-container::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.calendar-container::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 8px;
+  border: 4px solid #ffffff;
+}
+
+.calendar-container::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c6;
+}
+
+/* Smooth fade-in animation for content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-container > * {
+  animation: fadeIn 0.4s ease-out;
+}
+
